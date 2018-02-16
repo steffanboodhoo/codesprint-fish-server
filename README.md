@@ -1,2 +1,2 @@
-# Flask-Mongo-Basic
-Basic Template to reuse for flask and mongo
+# codesprint-fish-server
+This is a server for the fisherman 
