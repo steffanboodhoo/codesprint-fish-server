@@ -7,7 +7,7 @@ from pprint import pprint
 @app.route('/')
 @app.route('/home', methods=['GET'])
 def home():
-	return 'hello world'
+	return app.send_static_file('main_app/main.html')
 
 @app.route('/fisherman', methods=['GET','POST'])
 def fisherman():
