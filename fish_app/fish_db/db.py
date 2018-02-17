@@ -27,7 +27,10 @@ def insert_store_item(data):
 
 def get_store_item(data):
 	cursor = store_item.find(data)
-	resp = [rec for rec in cursor]
+	resp = []
+	for rec in cursor:
+		rec.pop('_id',None)
+		resp.append(rec)
 	return resp
 	
 #catch 			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -63,5 +66,5 @@ if __name__ == '__main__':
 	#     	if i!=j and arr[i]==arr[j]:
  #        		print'shit found'
 
-	#fisherman.delete_many({})
+	store_item.delete_many({})
 	
