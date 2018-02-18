@@ -5,29 +5,26 @@
 	</head>
 	
 	<body ng-controller="mainCtrl">
+		<div id='map'></div>
+		<div>
+		    <md-tabs md-stretch-tabs = "always" md-dynamic-height md-border-buttom>
 
-		<!-- MAIN SWITCH CONTAINER -->
-		<div ng-cloak>
-		  <md-content>
-
-		    <md-tabs md-dynamic-height md-border-bottom>
-		      <md-tab label="one">
+		      <md-tab label="Map">
 		        <md-content class="md-padding">
-		          <h1 class="md-display-2">Tab One</h1>
-		          <p>{{sampletextA}}</p>
+		          
 		        </md-content>
 		      </md-tab>
-		      <md-tab label="two">
+
+		      <md-tab label="Raw">
 		        <md-content class="md-padding">
-		          <h1 class="md-display-2">Tab Two</h1>
-		          <p>{{sampletextB}}</p>
+		          <div><h1>Tab Two</h1>
+		          <p>{{sampletextB}}</p></div>
 		        </md-content>
 		      </md-tab>
-		    </md-tabs>
 
-		  </md-content>
+		    </md-tabs>		 
 		</div>
-
+		<md-button onclick="retrieveRectangleData()"> get data </md-button>
 	</body>
 
 	<script type="text/javascript" src="static/node_modules/angular/angular.min.js"></script>
@@ -36,7 +33,9 @@
 	<script type="text/javascript" src="static/node_modules/angular-messages/angular-messages.min.js"></script>
 	<script type="text/javascript" src="static/node_modules/angular-material/angular-material.min.js"></script>
 
-	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC__jz_XKUkrgNXlkWvyVUwFMogwj_yzio&callback=initMap&libraries=drawing"
+    async defer></script>
 	<script type="text/javascript" src="static/main_app/mainCtrl.js"></script>
+	<script type="text/javascript" src="static/map/custom_map.js"></script>
 	
 </html>
