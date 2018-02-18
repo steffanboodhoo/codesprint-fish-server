@@ -3,7 +3,7 @@ angular.module('main',['ngMaterial','ngMessages','ngMap'])
 .controller('mainCtrl',['$scope','$rootScope','catchService',
 	function($scope,$rootScope,catchService){
 		window.onload = function(){
-			// let map = initMap();
+
 			$rootScope.table_data=[];
 			catchService.catch.getCatch(null,
 			function(resp){
@@ -15,7 +15,7 @@ angular.module('main',['ngMaterial','ngMessages','ngMap'])
 
 		$rootScope.getData = function(){
 			$rootScope.table_data = $rootScope.markers_data.slice(3,8);
-			console.log($rootScope.table_data)
+			$rootScope.func()
 		}
 	}
 ])
