@@ -1,29 +1,40 @@
-<html ng-app="credit">
+<html ng-app="main">
 	<head>
 		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 		<link rel="stylesheet" href="static/Utils/gen.css">
 	</head>
 	
 	<body ng-controller="mainCtrl">
-		<div id='map'></div>
-		<div>
-		    <md-tabs md-stretch-tabs = "always" md-dynamic-height md-border-buttom>
+		<div layout="row">
+			
+			<div flex="66">
+				<md-content class="md-padding">
+					<div id='map'></div>
+				</md-content>
+			</div>
 
-		      <md-tab label="Map">
-		        <md-content class="md-padding">
-		          
-		        </md-content>
-		      </md-tab>
+			<div flex="33">
+				<md-content class="md-padding">
+					<md-tabs md-stretch-tabs = "always" md-dynamic-height md-border-buttom>
+				      <md-tab label="View">
+				        <md-content class="md-padding">
+				    		<h1>Tab One</h1>
+				        </md-content>
+				      </md-tab>
 
-		      <md-tab label="Raw">
-		        <md-content class="md-padding">
-		          <div><h1>Tab Two</h1>
-		          <p>{{sampletextB}}</p></div>
-		        </md-content>
-		      </md-tab>
+				      <md-tab label="Export">
+				        <md-content class="md-padding">
+				        	<h1>Tab Two</h1>
+				        </md-content>
+				      </md-tab>
 
-		    </md-tabs>		 
+				    </md-tabs>		 
+				</md-content>
+			</div>
+
 		</div>
+		
+		
 		<md-button onclick="retrieveRectangleData()"> get data </md-button>
 	</body>
 
@@ -33,9 +44,10 @@
 	<script type="text/javascript" src="static/node_modules/angular-messages/angular-messages.min.js"></script>
 	<script type="text/javascript" src="static/node_modules/angular-material/angular-material.min.js"></script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC__jz_XKUkrgNXlkWvyVUwFMogwj_yzio&callback=initMap&libraries=drawing"
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC__jz_XKUkrgNXlkWvyVUwFMogwj_yzio&libraries=drawing"
     async defer></script>
 	<script type="text/javascript" src="static/main_app/mainCtrl.js"></script>
+	<script type="text/javascript" src="static/Services/catchServices.js"></script>
 	<script type="text/javascript" src="static/map/custom_map.js"></script>
 	
 </html>

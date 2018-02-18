@@ -3,17 +3,16 @@ let map;
 let rectangle; 
 
 function initMap() {
-	'use strict';
 	map = new google.maps.Map(document.getElementById('map'), 
 		{
-			center: {lat: -34.397, lng: 150.644},
+			center: {lat:10.467816636341285, lng:-61.35519349196328 },
 			zoom: 10
 		});
 
 	// Try HTML5 geolocation - if browser has geolocation, get the position and center map
 	var pos={};
 	if (navigator.geolocation) {
-	  navigator.geolocation.getCurrentPosition(function(position) {
+	  	navigator.geolocation.getCurrentPosition(function(position) {
 	    pos = {
 	      lat: position.coords.latitude,
 	      lng: position.coords.longitude
@@ -21,11 +20,14 @@ function initMap() {
 	    map.setCenter(pos);
 	    
 	  }, null);
+	}else{
+		console.log('why no geolocation m8')
 	}
 
 	map.addListener('click',function(ev){
 		create_rectangle(ev.latLng.lat(),ev.latLng.lng());
 	})
+	return map;
 }
 
 
@@ -47,6 +49,7 @@ function create_rectangle(c_lat,c_lng){
 
 function retrieveRectangleData(){
 	bounds = rectangle.getBounds().toJSON();
+	console.log(bounds)
 	
 }
 
@@ -58,3 +61,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 	infoWindow.open(map);
 }
 
+function loadMarkers(data,map){
+	// console.log(data)
+	data = data['data']
+	var markers = []
+	for( i in data ){
+		let rec = data[i]
+		markers[i] = new google.maps.Marker({
+			position:{"lat":parseInt(rec.lat),"lng":parseInt(rec.lng)},
+			map:map
+		})
+		// marker.setMap(map);
+	}
+}

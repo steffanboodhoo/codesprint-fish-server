@@ -1,13 +1,17 @@
+angular.module('main',['ngMaterial','ngMessages'])
 
-angular.module('credit',['ngMaterial','ngMessages'])
+.controller('mainCtrl',['$scope','$rootScope','catchService',
+	function($scope,$rootScope,catchService){
+		window.onload = function(){
+			let map = initMap();
 
-.controller('mainCtrl',['$scope','$rootScope',
-	function($scope,$rootScope){
+			catchService.catch.getCatch(null,
+			function(resp){
+				loadMarkers(resp['data'],map)
+			},null);
+		}
+
 		
-		$scope.AUTHENTICATED = false;
-		
-		$scope.sampletextA = "hello boys";
-		$scope.sampletextB = "It's been a pleasure";
 	}
 ])
 console.log('what the fuck')
