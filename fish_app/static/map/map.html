@@ -1,6 +1,16 @@
 <div class="map">
     <div map-lazy-load="https://maps.google.com/maps/api/js"
          map-lazy-load-params="{{googleMapsUrl}}">
-        <ng-map zoom="14"></ng-map>
+        <ng-map default-style="true" zoom="10" center="10.467, -61.355">
+        	<shape
+        		visibility = {{rect_visible}} 
+        		name="rectangle"
+		        editable="true"
+		        draggable="true"
+		        bounds="[[{{north}},{{west}}],[{{south}},{{east}}]]"
+		        >
+      		</shape>
+      		<marker ng-repeat="rec in markers_data" position="{{rec.lat}},{{rec.lng}}" ></marker>
+        </ng-map>
     </div>
 </div>
