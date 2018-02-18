@@ -27,12 +27,12 @@ def store_item_crud(data, method):
 
 def catch_crud(data, method):
 	if method == 'POST':
-		id = fish_db.catch_item(data)
+		id = fish_db.insert_catch(data)
 		return {'status':'success','id':id}
 
 	elif method == 'GET':
-		resp = fish_db.catch_item(data)
+		resp = fish_db.get_catch(data)
 		return {'status':'success','data':resp}
 
-	elif method == 'PUT':
-		fish_db.catch_item(data)
+	# elif method == 'PUT':
+	# 	fish_db.catch_item(data)

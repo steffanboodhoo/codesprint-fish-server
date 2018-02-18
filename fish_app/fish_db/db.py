@@ -41,7 +41,10 @@ def insert_catch(data):
 
 def get_catch(data):
 	cursor = catch.find(data)
-	resp = [rec for rec in cursor]
+	resp = []
+	for rec in cursor:
+		rec.pop('_id',None)
+		resp.append(rec)
 	return resp
 
 def id_gen():
