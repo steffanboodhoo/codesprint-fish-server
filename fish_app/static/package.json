@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "angular-google-maps": "^2.4.1",
-    "angular-messages": "1.5.8"
+    "angular-messages": "1.5.8",
+    "ngmap": "^1.18.4"
   }
 }
