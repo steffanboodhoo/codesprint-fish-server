@@ -7,6 +7,8 @@ angular.module('main',['ngMaterial','ngMessages'])
 
 			catchService.catch.getCatch(null,
 			function(resp){
+				$rootScope.table_data=resp['data']['data'];
+				console.log($rootScope.table_data)
 				loadMarkers(resp['data'],map)
 			},null);
 		}
