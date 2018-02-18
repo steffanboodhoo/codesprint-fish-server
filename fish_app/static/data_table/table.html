@@ -1,1 +1,29 @@
-<div id='d_table'> Inzamam's text</div>
+<div id='d_table'>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th ng-repeat="x in headings">{{x.val}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="entry in table_data">
+                <div>
+                    <!--<td ng-repeat="x in headings2">{{entry.x}}{{x.val}}</td>-->
+                    <td ng-repeat="x in headings">{{grab(entry, x.val)}}</td>
+                </div>
+                <!--<td ng-repeat="x in headings">{{entry[x]}}</td>-->
+                <!--<div ng-repeat="x in headings">-->
+                    <!---->
+                <!--</div>-->
+            </tr>
+        </tbody>
+
+    </table>
+
+
+
+
+</div>
+
+<script type="text/javascript" src="static/data_table/tableCtrl.js"></script>
